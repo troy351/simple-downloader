@@ -1,0 +1,9 @@
+{
+  "name": "simple-downloader",
+  "version": "1.0.0",
+  "private": true,
+  "author": "troy",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
