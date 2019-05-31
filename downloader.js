@@ -26,11 +26,13 @@ axios.defaults.timeout = 60000
 axios.defaults.withCredentials = true
 
 list.forEach(path => {
-  const filename = path.substr(path.lastIndexOf('/') + 1)
+  const slashIndex = path.lastIndexOf('/') + 1
+  const filename = path.substr(slashIndex)
+  const dir = path.substr(0, slashIndex)
 
   axios
     .request({
-      url: baseUrl + path,
+      url: baseUrl + dir + encodeURIComponent(filename),
       method: 'get',
       // use 'arraybuffer' in case there may have some binary files (e.g. fonts)
       responseType: 'arraybuffer',
